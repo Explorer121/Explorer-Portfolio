@@ -1,0 +1,470 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+{% for home in object_list %}
+<!-- intro section
+================================================== -->
+<section id="intro">   
+
+   <div class="intro-overlay"></div>	
+
+   <div class="intro-content">
+        <div class="row">
+
+             <div class="col-twelve">
+
+                  <h5>Hello, World.</h5>
+                  <h1>I'm {{ home.full_name }}.</h1>
+               <span>{{ home.user }}</span>
+
+                  <p class="intro-position">
+                       <span>Full-Stack Web Developer</span>
+                  </p>
+
+                  <a class="button stroke smoothscroll" href="#about" title="">More About Me</a>
+
+             </div>  
+             
+        </div>   		 		
+   </div> <!-- /intro-content --> 
+
+   <ul class="intro-social">        
+    <li><a href="{{ home.facebook_link }}"><i class="fab fa-facebook-f"></i></a></li>
+    <li><a href="{{ home.github_link }}"><i class="fab fa-github"></i></a></li>
+    <li><a href="{{ home.twitter_link }}"><i class="fab fa-twitter"></i></a></li>
+    <li><a href="{{ home.linkedin_link }}"><i class="fab fa-linkedin"></i></a></li>
+    <li><a href="{{ home.instagram_link }}"><i class="fab fa-instagram"></i></a></li>
+    <li><a href="{{ home.whatsapp_link }}"><i class="fab fa-whatsapp"></i></a></li>
+</ul> <!-- /intro-social -->      	
+
+</section> <!-- /intro -->
+
+{% endfor %}
+
+<!-- about section
+================================================== -->
+
+{% for about in about_list %}
+<section id="about">  
+
+   <div class="row section-intro">
+        <div class="col-twelve">
+
+             <h5>About</h5>
+             <h1>Let me introduce myself.</h1>
+
+             <div class="intro-info">
+
+                    <img src="{% static 'about/WhatsApp_Image_2022-03-20_at_9.20.04_AM_1.jpeg'%}" alt="Profile Picture">
+
+                  <p class="lead">{{ about.my_description }}.</p>
+             </div>   			
+
+        </div>   		
+   </div> <!-- /section-intro -->
+
+   <div class="row about-content">
+
+        <div class="col-six tab-full">
+
+             <h3>Profile</h3>
+             <p>{{ about.profile_details }}</p>
+
+             <ul class="info-list">
+                  <li>
+                       <strong>Fullname:</strong>
+                       <span>{{ about.my_name }}</span>
+                  </li>
+                  
+                  <li>
+                       <strong>Job:</strong>
+                       <span>Freelancer, {{ about.job }}</span>
+                  </li>
+                  <li>
+                       <strong>Website:</strong>
+                       <span><a href="{{ about.website }}"> Secret Chat </a>(Still on going)</span>
+                  </li>
+                  <li>
+                       <strong>Email:</strong>
+                       <span>{{ about.email }}</span>
+                  </li>
+
+                  <li>
+                         <strong>Certificates:</strong>
+                         <span>{{ about.certificate }}</span>
+                  </li>
+
+             </ul> <!-- /info-list -->
+
+        </div>
+
+        <div class="col-six tab-full">
+
+             <h3>Skills</h3>
+             <p>{{ about.skills_details }}</p>
+
+               <ul class="skill-bars">
+                  <li>
+                       <div class="progress percent90"><span>90%</span></div>
+                       <strong>HTML5 & CSS3</strong>
+                  </li>
+                  <li>
+                       <div class="progress percent85"><span>65%</span></div>
+                       <strong>JavaScript & JQuery</strong>
+                  </li>
+                  <li>
+                       <div class="progress percent70"><span>79%</span></div>
+                       <strong>React Js & Redux</strong>
+                  </li>
+                  <li>
+                       <div class="progress percent60"><span>60%</span></div>
+                       <strong>Python ( Django ) & Laravel </strong>
+                  </li>
+                  <li>
+
+                       <div class="progress percent75"><span>55%</span></div>
+                       <strong>Firebase, MySQL, SQLite</strong>
+                  </li>
+ 
+               </ul> <!-- /skill-bars -->		
+
+        </div>
+
+   </div>
+
+   <div class="row button-section">
+        <div class="col-twelve">
+             <a href="#contact" title="Hire Me" class="button stroke smoothscroll">Hire Me</a>
+             <a href="https://app.enhancv.com/share/1b732ed8/?utm_medium=growth&utm_campaign=share-resume&utm_source=dynamic" title="Download CV" class="button button-primary">Download CV</a>
+        </div>   		
+   </div>
+
+</section> <!-- /process-->    
+
+{% endfor %}
+
+
+<!-- Resume &&  Experience Section
+================================================== -->
+<section id="resume" class="grey-section">
+
+   <div class="row resume-timeline">
+
+        <div class="col-twelve resume-header">
+
+             <h2>Work Experience</h2>
+
+        </div> <!-- /resume-header -->
+
+        <div class="col-twelve">
+
+             <div class="timeline-wrap">
+               {% for work in work_list %}
+                  <div class="timeline-block">
+
+                       <div class="timeline-ico">
+                            <i class="fa fa-graduation-cap"></i>
+                       </div>
+
+                       <div class="timeline-header">
+                            <h3>{{ work.work_position }}</h3>
+                            <p>{{ work.work_duration }}</p>
+                       </div>
+
+                       <div class="timeline-content">
+                            <h4>{{ work.work_company }}</h4>
+                            <p>{{ work.work_duity }}.</p>
+                       </div>
+
+                  </div> <!-- /timeline-block -->
+
+               {% endfor %}
+               
+             </div> <!-- /timeline-wrap -->   			
+
+        </div> <!-- /col-twelve -->
+        
+   </div> <!-- /resume-timeline -->
+   
+   <div class="row resume-timeline">
+
+        <div class="col-twelve resume-header">
+
+             <h2>Education</h2>
+
+        </div> <!-- /resume-header -->
+
+        <div class="col-twelve">
+
+             <div class="timeline-wrap">
+
+               {% for edu in education_list %}
+                  <div class="timeline-block">
+
+                       <div class="timeline-ico">
+                            <i class="fa fa-briefcase"></i>
+                       </div>
+
+                       <div class="timeline-header">
+                            <h3>{{ edu.education_field }}</h3>
+                            <p>{{ edu.education_duration }}</p>
+                       </div>
+
+                       <div class="timeline-content">
+                            <h4>{{ edu.education_name }}</h4>
+                            <p>{{ edu.education_description }}</p>
+                       </div>
+
+                  </div> <!-- /timeline-block -->
+
+               {% endfor %}
+               
+             </div> <!-- /timeline-wrap -->   			
+
+        </div> <!-- /col-twelve -->
+        
+   </div> <!-- /resume-timeline -->
+     
+</section> <!-- /features -->
+
+
+<!-- services Section
+================================================== -->
+<section id="services">
+
+     <div class="overlay"></div>
+
+     <div class="row section-intro">
+        <div class="col-twelve">
+
+             <h5>Services</h5>
+             <h1>What I Can Do?</h1>
+
+             {% for service in service_list %}
+             <p class="lead">I can {{ service.service }}</p>
+          
+             {% endfor %}
+   
+        </div>   		
+     </div> <!-- /section-intro -->
+
+</section> <!-- /services -->	
+
+
+<!-- stats Section
+================================================== -->
+<section id="stats" class="count-up">
+
+     <div class="row">
+          <div class="col-twelve">
+
+               <div class="block-1-6 block-s-1-3 block-tab-1-2 block-mob-full stats-list">
+
+                    <div class="bgrid stat">
+
+                         <div class="icon-part">
+                              <i class="icon-pencil-ruler"></i>
+                         </div>
+
+                         <h3 class="stat-count">
+                              2
+                         </h3>
+
+                         <h5 class="stat-title">
+                              Projects Completed
+                         </h5>
+
+                    </div> <!-- /stat -->					
+
+                    <div class="bgrid stat">
+
+                         <div class="icon-part">
+                              <i class="fab fa-r-project" style="font-size: 40px; color: black;"></i>
+                         </div>
+
+                         <h3 class="stat-count">
+                              3
+                         </h3>
+
+                         <h5 class="stat-title">
+                              Personal Projects on going
+                         </h5>
+
+                    </div> <!-- /stat -->
+
+                    <div class="bgrid stat">
+
+                         <div class="icon-part">
+                              <i class="icon-badge"></i>
+                         </div>
+
+                         <h3 class="stat-count">
+                              2
+                         </h3>
+
+                         <h5 class="stat-title">
+                              Awards Received
+                         </h5>
+
+                    </div> <!-- /stat -->									
+
+                    <div class="bgrid stat">
+
+                         <div class="icon-part">
+                              <i class="icon-light-bulb"></i>
+                         </div>
+
+                         <h3 class="stat-count">
+                              200+
+                         </h3>
+
+                         <h5 class="stat-title">
+                              Projects Ideas
+                         </h5>
+
+                    </div> <!-- /stat -->
+
+                    <div class="bgrid stat">
+
+                         <div class="icon-part">
+                              <i class="fa fa-laptop" style="font-size: 40px; color: black;"></i>
+                         </div>
+
+                         <h3 class="stat-count">
+                              1
+                         </h3>
+
+                         <h5 class="stat-title">
+                              Tools
+                         </h5>
+
+                    </div> <!-- /stat -->
+
+                    <div class="bgrid stat">
+
+                         <div class="icon-part">
+                              <i class="icon-clock"></i>
+                         </div>
+
+                         <h3 class="stat-count">
+                              17
+                         </h3>
+
+                         <h5 class="stat-title">
+                              Hours of Coding Dairly
+                         </h5>
+
+                    </div> <!-- /stat -->
+
+               </div> <!-- /stats-list -->
+
+          </div> <!-- /twelve -->
+     </div> <!-- /row -->
+
+</section> <!-- /stats -->
+
+
+<!-- contact
+================================================== -->
+<section id="contact">
+
+     <div class="row section-intro">
+        <div class="col-twelve">
+
+             <h5>Contact</h5>
+             <h1>I'd Love To Hear From You.</h1>
+
+        </div> 
+   </div> <!-- /section-intro -->
+
+   <div class="row contact-form">
+
+        <div class="col-twelve">
+
+       <!-- form -->
+       <form name="contactForm" id="contactForm" method="POST" action="">
+          {% csrf_token %}
+                <fieldset>
+
+                    {{ contact_form }}
+          <div class="form-field">
+                <button class="submitform">Submit</button>
+                <div id="submit-loader">
+                   <div class="text-loader">Sending...</div>                             
+                            <div class="s-loader">
+                                          <div class="bounce1"></div>
+                                          <div class="bounce2"></div>
+                                          <div class="bounce3"></div>
+                                   </div>
+                              </div>
+             </div>
+
+                </fieldset>
+           </form> <!-- Form End -->
+
+       <!-- contact-warning -->
+       <div id="message-warning">            	
+       </div>            
+       <!-- contact-success -->
+           <div id="message-success">
+          <i class="fa fa-check"></i>Your message was sent, thank you!<br>
+           </div>
+
+    </div> <!-- /col-twelve -->
+        
+   </div> <!-- /contact-form -->
+
+   {% for home in object_list %}
+   <div class="row contact-info">
+
+        <div class="col-four tab-full">
+
+             <div class="icon">
+                  <i class="icon-pin"></i>
+             </div>
+
+             <h5>Where to find me</h5>
+
+             <p>
+      {{ home.location }}
+       </p>
+
+        </div>
+
+        <div class="col-four tab-full collapse">
+
+             <div class="icon">
+                  <i class="icon-mail"></i>
+             </div>
+
+             <h5>Email Me At</h5>
+
+             <p>{{ home.email }}
+             </p>
+
+        </div>
+
+        <div class="col-four tab-full">
+
+             <div class="icon">
+                  <i class="icon-phone"></i>
+             </div>
+
+             <h5>Call Me At</h5>
+
+             <p>Phone: <a href="{{ home.phone_call }}">+2348057691197</a><br>
+                  Whatsapp: <a href="{{ home.whatsapp_call }}" type="tel">+2349020700625</a><br>
+             </p>
+
+        </div>
+        
+   </div> <!-- /contact-info -->
+        
+   {% endfor %}
+
+</section> <!-- /contact -->
+
+
+{% endblock content %}

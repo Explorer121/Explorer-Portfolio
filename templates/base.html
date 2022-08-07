@@ -1,0 +1,149 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html class="no-js" lang="en"> 
+<head>
+
+   <!--- basic page needs
+   ================================================== -->
+   <meta charset="utf-8">
+	<title>Explorer Portfolio</title>
+	<meta name="description" content="">  
+	<meta name="author" content="NURUDEEN ADEBILEJE OLUWASEUN">
+
+   <!-- mobile specific metas
+   ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+ 	<!-- CSS
+   ================================================== -->
+   <link rel="stylesheet" href="{% static 'css/base.css' %}">  
+   <link rel="stylesheet" href="{% static 'css/main.css' %}">
+   <link rel="stylesheet" href="{% static 'css/vendor.css' %}">    
+   <link rel="stylesheet" href="{% static 'css/font-awesome/css/font-awesome.css' %}">    
+   <link rel="stylesheet" href="{% static 'css/font-awesome/css/all.css' %}">    
+   <link rel="stylesheet" href="{% static 'css/font-awesome/css/font-awesome.min.css' %}">    
+   <link rel="stylesheet" href="https://use.fontawesome.com/6fd5acf5f3.css">
+
+
+
+   <!-- favicons
+	================================================== -->
+	<link rel="icon" type="{% static 'image/png' %}" href="favicon.png">
+
+</head>
+
+<body id="top">
+
+	<!-- header 
+   ================================================== -->
+   <header>   	
+   	<div class="row">
+
+   		<div class="top-bar">
+   			<a class="menu-toggle" href="{% url 'home' %}"><span>Menu</span></a>
+
+	   		<div class="" style="align-items: center; margin-top: 20px; ">
+		         <a href="{% url 'home' %}" style="color: #FFF; text-transform: uppercase;">Explorer</a>
+		      </div>		      
+
+		   	<nav id="main-nav-wrap">
+					<ul class="main-navigation">
+						<li class="current"><a class="smoothscroll"  href="{% url 'home' %}" title="">Home</a></li>
+						<li><a class="smoothscroll"  href="#about" title="">About</a></li>
+						<li><a class="smoothscroll"  href="#resume" title="">Resume</a></li>
+						
+						<li><a class="smoothscroll"  href="#services" title="">Services</a></li>					
+						<li><a class="smoothscroll"  href="#contact" title="contact">Contact Me</a></li>	
+									
+					</ul>
+				</nav> 
+				
+				
+   		</div> <!-- /top-bar --> 
+   		
+   	</div> <!-- /row --> 
+	
+	
+	   <div 
+	 	style="
+			display: block;
+		"  
+	   >
+		<ul
+			style="
+			color: white;
+			list-style: none;
+			"
+		>
+			<li class="current"	><a  href="{% url 'home' %}" title="">Home</a></li>				
+			<li><a  href="{% url 'contact' %}" title="contact">Contact Me</a></li>	
+						
+		</ul>
+	</div>	
+   </header> <!-- /header -->
+
+   {% block content %}
+   
+   {% endblock content %}
+
+   
+   <!-- footer
+   ================================================== -->
+
+   <footer>
+			{% for home in object_list %}
+     	<div class="row">
+     		<div class="col-six tab-full pull-right social">
+
+     			<ul class="footer-social">        
+			      <li><a href="{{ home.facebook_link }}"><i class="fab fa-facebook-f"></i></a></li>
+				 <li><a href="{{ home.twitter_link }}"><i class="fab fa-twitter"></i></a></li>
+				 <li><a href="{{ home.linkedin_link }}"><i class="fab fa-linkedin"></i></a></li>
+				 <li><a href="{{ home.instagram_link }}"><i class="fab fa-instagram"></i></a></li>
+				 <li><a href="{{ home.whatsapp_link }}"><i class="fab fa-whatsapp"></i></a></li>
+			   </ul> 
+	      		
+	      	</div>
+			
+
+      	<div class="col-six tab-full">
+	      	<div class="copyright">
+		        	<span>© Copyright Kards 2016.</span> 
+		        	<span>Design by <a href="{% url 'home' %}">{{ home.user }}</a></span>	         	
+		         </div>		                  
+	      	</div>
+
+	      	<div id="go-top">
+		         <a class="smoothscroll" title="Back to Top" href="#top"><i class="far fa-arrow-alt-up"></i></a>
+		      </div>
+
+      	</div> <!-- /row -->     	
+	{% endfor %}
+   </footer>  
+
+   <div id="preloader"> 
+    	<div id="loader"></div>
+   </div> 
+
+   <!-- Java Script
+   ================================================== --> 
+   <script src="https://use.fontawesome.com/266de7f6aa.js"></script>
+
+      <!-- script
+   ================================================== -->   
+	<script src="{% static 'js/modernizr.js' %}"></script>
+	<script src="{% static 'js/pace.min.js' %}"></script>
+
+   <script src="{% static 'js/jquery-2.1.3.min.js' %}"></script>
+   <script src="{% static 'js/plugins.js' %}"></script>
+   <script src="{% static 'js/main.js' %}"></script>
+
+
+   <script src="{% static 'css/font-awesome/js/fontawesome.js' %}"></script>
+   <script src="{% static 'css/font-awesome/js/all.js' %}"></script>
+   <script src="{% static 'css/font-awesome/js/brands.js' %}"></script>
+
+</body>
+
+</html>
